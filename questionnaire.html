@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Audit UK | Async Workflow Audit Questionnaire</title>
+    <meta
+      name="description"
+      content="Async workflow audit questionnaire for accountancy and bookkeeping firms."
+    >
+    <style>
+      :root {
+        --ink: #17201b;
+        --muted: #59645f;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --line: #d9ded8;
+        --green: #0f6b4f;
+        --green-dark: #084d39;
+        --gold: #c58b28;
+        --soft: #eef4f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .wrap {
+        width: min(920px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 72px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        min-height: 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+
+      .mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--green);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 17px;
+      }
+
+      a {
+        color: var(--green-dark);
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .hero {
+        margin-top: 44px;
+        max-width: 790px;
+      }
+
+      .eyebrow {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(38px, 6vw, 64px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .notice {
+        margin: 28px 0;
+        border-left: 4px solid var(--gold);
+        background: #fff7e7;
+        padding: 14px 16px;
+        color: #4d3a16;
+        line-height: 1.5;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+        margin-top: 30px;
+      }
+
+      .field {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+      }
+
+      label {
+        display: block;
+        font-weight: 820;
+        margin-bottom: 8px;
+      }
+
+      .hint {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid #c8d1ca;
+        border-radius: 7px;
+        background: #fff;
+        min-height: 44px;
+        padding: 11px 12px;
+        font: inherit;
+        color: var(--ink);
+      }
+
+      textarea {
+        min-height: 116px;
+        resize: vertical;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 6px;
+      }
+
+      button,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 7px;
+        border: 1px solid var(--green);
+        background: var(--green);
+        color: white;
+        font-weight: 800;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--green-dark);
+      }
+
+      .result {
+        display: none;
+        margin-top: 20px;
+        background: var(--soft);
+        border: 1px solid #bfd3ca;
+        border-radius: 8px;
+        padding: 16px;
+        color: var(--green-dark);
+        line-height: 1.5;
+      }
+
+      .result.show {
+        display: block;
+      }
+
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .top {
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .brand span {
+          display: none;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">W</div>
+          <span>Workflow Audit UK</span>
+        </div>
+        <a href="index.html">Back to overview</a>
+      </header>
+
+      <main>
+        <div class="hero">
+          <div class="eyebrow">Async audit intake</div>
+          <h1>Tell me where the workflow is slowing down</h1>
+          <p class="lede">
+            Short answers are fine. The goal is to understand the current
+            process well enough to spot bottlenecks and decide whether a paid
+            audit is worth doing.
+          </p>
+        </div>
+
+        <div class="notice">
+          Please avoid sending sensitive client data at this stage. Redact names,
+          tax references, payroll details, bank details, addresses, and personal
+          identifiers where possible. See the <a href="privacy.html">privacy note</a>
+          before sending anything sensitive.
+        </div>
+
+        <form id="questionnaire">
+          <div class="grid">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="firm">Firm name</label>
+              <input id="firm" name="firm" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="tools">Main tools involved</label>
+              <input id="tools" name="tools" placeholder="Outlook, Xero, Dext, Excel...">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="workflow">Which workflow would you most like to improve?</label>
+            <p class="hint">Examples: onboarding, document chasing, payroll inputs, monthly bookkeeping info, proposal follow-up, invoice chasing.</p>
+            <textarea id="workflow" name="workflow"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="current">How does the workflow happen today?</label>
+            <p class="hint">List the steps from start to finish. Bullets are fine.</p>
+            <textarea id="current" name="current"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="people">Who touches this workflow internally?</label>
+            <p class="hint">Roles are enough. No names needed.</p>
+            <textarea id="people" name="people"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="frequency">How often does it happen, and roughly how much time does it take?</label>
+            <textarea id="frequency" name="frequency"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="problems">What goes wrong most often?</label>
+            <p class="hint">Examples: clients do not reply, missing documents, duplicated chasing, unclear ownership, manual entry, partner has to step in.</p>
+            <textarea id="problems" name="problems"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="improvement">What would improve if this workflow was cleaner?</label>
+            <textarea id="improvement" name="improvement"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="recording">Can you share screenshots or a screen recording?</label>
+            <p class="hint">Paste a link if you have one. Please redact sensitive data first.</p>
+            <textarea id="recording" name="recording"></textarea>
+          </div>
+
+          <div class="button-row">
+            <button type="button" id="emailButton">Prepare email</button>
+            <button type="button" id="copyButton" class="button secondary">Copy answers</button>
+          </div>
+
+          <div id="result" class="result" role="status"></div>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      const form = document.querySelector("#questionnaire");
+      const result = document.querySelector("#result");
+      const emailAddress = "workflowaudituk@gmail.com";
+
+      function buildPayload() {
+        const data = new FormData(form);
+        const fields = [
+          ["Name", data.get("name")],
+          ["Firm", data.get("firm")],
+          ["Email", data.get("email")],
+          ["Tools", data.get("tools")],
+          ["Workflow to improve", data.get("workflow")],
+          ["Current process", data.get("current")],
+          ["People involved", data.get("people")],
+          ["Frequency and time", data.get("frequency")],
+          ["Common problems", data.get("problems")],
+          ["What would improve", data.get("improvement")],
+          ["Screenshots or recording", data.get("recording")]
+        ];
+
+        return fields
+          .map(([label, value]) => `${label}:\n${value || ""}`)
+          .join("\n\n");
+      }
+
+      function showResult(message) {
+        result.textContent = message;
+        result.classList.add("show");
+      }
+
+      document.querySelector("#emailButton").addEventListener("click", () => {
+        const subject = encodeURIComponent("Async workflow audit questionnaire");
+        const body = encodeURIComponent(buildPayload());
+        window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+        showResult("Your email app should open with the questionnaire answers prepared.");
+      });
+
+      document.querySelector("#copyButton").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(buildPayload());
+        showResult("Answers copied. You can paste them into an email or message.");
+      });
+    </script>
+  </body>
+</html>

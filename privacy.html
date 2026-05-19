@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Audit UK | Privacy Note</title>
+    <style>
+      :root {
+        --ink: #17201b;
+        --muted: #59645f;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --line: #d9ded8;
+        --green: #0f6b4f;
+        --green-dark: #084d39;
+        --gold: #c58b28;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .wrap {
+        width: min(840px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 72px;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        min-height: 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+
+      .mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--green);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 17px;
+      }
+
+      a {
+        color: var(--green-dark);
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      main {
+        margin-top: 48px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: clamp(22px, 5vw, 42px);
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(36px, 6vw, 56px);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 22px;
+        letter-spacing: 0;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 16px;
+      }
+
+      ul {
+        padding-left: 22px;
+      }
+
+      .notice {
+        border-left: 4px solid var(--gold);
+        background: #fff7e7;
+        padding: 14px 16px;
+        color: #4d3a16;
+      }
+
+      @media (max-width: 380px) {
+        .brand span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">W</div>
+          <span>Workflow Audit UK</span>
+        </div>
+        <a href="index.html">Back to overview</a>
+      </header>
+
+      <main>
+        <h1>Privacy note</h1>
+        <p class="notice">
+          This is a plain-English privacy note for the early workflow audit
+          service. It is not legal advice.
+        </p>
+
+        <h2>What you send</h2>
+        <p>
+          If you request an async workflow review, you may choose to send
+          questionnaire answers, screenshots, screen recordings, links, and
+          notes about the workflow you want reviewed.
+        </p>
+
+        <h2>What not to send</h2>
+        <p>
+          Please avoid sending sensitive client data unless it is essential.
+          Redact names, addresses, bank details, tax references, payroll
+          details, account numbers, and personal identifiers where possible.
+        </p>
+
+        <h2>How the information is used</h2>
+        <p>
+          Information you send is used to understand the workflow, identify
+          bottlenecks, prepare a mini-diagnosis, and, if agreed, produce a paid
+          workflow audit or implementation proposal.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For privacy questions or deletion requests, email
+          <a href="mailto:workflowaudituk@gmail.com">workflowaudituk@gmail.com</a>.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>
+

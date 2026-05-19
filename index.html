@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Audit UK | Async Workflow Audits for Accountancy Firms</title>
+    <meta
+      name="description"
+      content="No-call workflow audits for accountancy and bookkeeping firms that want to reduce repetitive client admin with simple process cleanup and automation."
+    >
+    <style>
+      :root {
+        --ink: #17201b;
+        --muted: #59645f;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --line: #d9ded8;
+        --green: #0f6b4f;
+        --green-dark: #084d39;
+        --gold: #c58b28;
+        --blue: #2f5f86;
+        --soft: #eef4f0;
+        --shadow: 0 18px 45px rgba(25, 42, 32, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 246, 0.94);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--green);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 17px;
+        line-height: 1;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border-radius: 7px;
+        border: 1px solid var(--green);
+        background: var(--green);
+        color: white;
+        text-decoration: none;
+        font-weight: 750;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--green-dark);
+      }
+
+      .hero {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: calc(100svh - 68px);
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+        gap: 42px;
+        align-items: center;
+        padding: 54px 0 40px;
+      }
+
+      .eyebrow {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(40px, 6vw, 72px);
+        line-height: 0.95;
+        letter-spacing: 0;
+        max-width: 820px;
+      }
+
+      .lede {
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: 19px;
+        line-height: 1.55;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .proof-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 34px;
+        max-width: 620px;
+      }
+
+      .proof {
+        border-left: 3px solid var(--gold);
+        padding: 4px 0 4px 12px;
+      }
+
+      .proof strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      .proof span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .workflow-visual {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .visual-top {
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--line);
+        background: #f4f7f4;
+      }
+
+      .window-dots {
+        display: flex;
+        gap: 7px;
+      }
+
+      .window-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #c7d0c9;
+      }
+
+      .status-pill {
+        font-size: 12px;
+        color: var(--green-dark);
+        border: 1px solid #b7d0c5;
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: #e7f3ed;
+        font-weight: 750;
+      }
+
+      .visual-body {
+        padding: 18px;
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .mini-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+        min-height: 132px;
+        background: #fff;
+      }
+
+      .mini-panel.wide {
+        grid-column: 1 / -1;
+      }
+
+      .mini-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+
+      .tag {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 0;
+        border-top: 1px solid #edf0ec;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .row:first-of-type {
+        border-top: 0;
+      }
+
+      .row b {
+        color: var(--ink);
+      }
+
+      .meter {
+        width: 72px;
+        height: 8px;
+        border-radius: 999px;
+        background: #e9ece8;
+        overflow: hidden;
+      }
+
+      .meter span {
+        display: block;
+        height: 100%;
+        background: var(--green);
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .step {
+        background: var(--soft);
+        border-radius: 7px;
+        padding: 10px;
+        min-height: 84px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .step strong {
+        display: block;
+        color: var(--ink);
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      section {
+        border-top: 1px solid var(--line);
+      }
+
+      .section-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 72px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
+        gap: 32px;
+        align-items: end;
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .section-copy {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .feature {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        min-height: 178px;
+      }
+
+      .feature-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        background: var(--soft);
+        color: var(--green-dark);
+        font-weight: 850;
+        margin-bottom: 18px;
+      }
+
+      .feature h3,
+      .pricing h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      .feature p,
+      .pricing p,
+      .small {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 14px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(320px, 0.65fr);
+        gap: 22px;
+        align-items: start;
+      }
+
+      .workflow-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .list-item {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 15px;
+        font-weight: 760;
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+      }
+
+      .pricing {
+        background: var(--green-dark);
+        color: white;
+        border-radius: 8px;
+        padding: 24px;
+        position: sticky;
+        top: 92px;
+      }
+
+      .pricing p {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .price {
+        font-size: 48px;
+        line-height: 1;
+        font-weight: 880;
+        margin: 16px 0 8px;
+      }
+
+      .price span {
+        display: block;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.72);
+        margin-top: 8px;
+        font-weight: 650;
+      }
+
+      .included {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .included li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .check {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: #1b1406;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        font-weight: 900;
+        margin-top: 1px;
+      }
+
+      .pricing .button {
+        width: 100%;
+        background: white;
+        color: var(--green-dark);
+        border-color: white;
+      }
+
+      .note {
+        margin-top: 12px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .final-cta {
+        background: var(--ink);
+        color: white;
+      }
+
+      .final-cta .section-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .final-cta h2 {
+        max-width: 720px;
+      }
+
+      .final-cta p {
+        color: rgba(255, 255, 255, 0.72);
+        max-width: 660px;
+        margin: 16px 0 0;
+      }
+
+      .footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.58);
+        padding: 22px 0;
+      }
+
+      .footer-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .section-head,
+        .split,
+        .final-cta .section-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 42px;
+        }
+
+        .features {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .pricing {
+          position: static;
+        }
+
+        .final-cta .section-inner {
+          display: grid;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          min-height: 62px;
+        }
+
+        .nav-links a:not(.button) {
+          display: none;
+        }
+
+        .hero {
+          gap: 28px;
+          padding-top: 34px;
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .lede {
+          font-size: 17px;
+        }
+
+        .proof-row,
+        .features,
+        .workflow-list,
+        .workflow-grid,
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .mini-panel.wide {
+          grid-column: auto;
+        }
+
+        .section-inner {
+          padding: 54px 0;
+        }
+
+        .price {
+          font-size: 40px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .brand span {
+          display: none;
+        }
+
+        .nav-links .button {
+          min-height: 42px;
+          padding: 0 13px;
+          font-size: 13px;
+        }
+
+        h1 {
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">W</div>
+          <span>Workflow Audit UK</span>
+        </div>
+        <div class="nav-links">
+          <a href="#process">Process</a>
+          <a href="#workflows">Workflows</a>
+          <a href="questionnaire.html" class="button">Request questionnaire</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">No-call first workflow audits</div>
+          <h1>Async workflow audits for accountancy firms</h1>
+          <p class="lede">
+            Find where client admin is slowing the team down, then turn the
+            clearest bottlenecks into simple workflows, automation, and
+            practical AI-assisted support.
+          </p>
+          <div class="hero-actions">
+            <a href="questionnaire.html" class="button">Request questionnaire</a>
+            <a href="#audit" class="button secondary">See the audit</a>
+          </div>
+          <div class="proof-row" aria-label="Service highlights">
+            <div class="proof">
+              <strong>No call</strong>
+              <span>Questionnaire plus screenshots or a short screen recording.</span>
+            </div>
+            <div class="proof">
+              <strong>3-5 fixes</strong>
+              <span>Practical improvements before any implementation quote.</span>
+            </div>
+            <div class="proof">
+              <strong>Low risk</strong>
+              <span>Refunded if the audit finds no credible improvements.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-visual" aria-label="Workflow audit preview">
+          <div class="visual-top">
+            <div class="window-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="status-pill">Audit preview</div>
+          </div>
+          <div class="visual-body">
+            <div class="workflow-grid">
+              <div class="mini-panel">
+                <div class="mini-title">
+                  <span>Workflow</span>
+                  <span class="tag">Current</span>
+                </div>
+                <div class="row"><b>Client request</b><span>Email</span></div>
+                <div class="row"><b>Reminder chase</b><span>Manual</span></div>
+                <div class="row"><b>Status tracking</b><span>Sheet</span></div>
+              </div>
+              <div class="mini-panel">
+                <div class="mini-title">
+                  <span>Bottlenecks</span>
+                  <span class="tag">Impact</span>
+                </div>
+                <div class="row">
+                  <b>Duplicate chasing</b>
+                  <div class="meter"><span style="width: 76%"></span></div>
+                </div>
+                <div class="row">
+                  <b>Unclear owner</b>
+                  <div class="meter"><span style="width: 62%"></span></div>
+                </div>
+                <div class="row">
+                  <b>Late documents</b>
+                  <div class="meter"><span style="width: 84%"></span></div>
+                </div>
+              </div>
+              <div class="mini-panel wide">
+                <div class="mini-title">
+                  <span>Recommended path</span>
+                  <span class="tag">Simple first</span>
+                </div>
+                <div class="timeline">
+                  <div class="step"><strong>Map</strong>Confirm the real workflow and owners.</div>
+                  <div class="step"><strong>Standardise</strong>Templates, statuses, and handoffs.</div>
+                  <div class="step"><strong>Automate</strong>Reminders and routine updates.</div>
+                  <div class="step"><strong>Monitor</strong>Track usage and exceptions.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="process">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2>Designed for busy firms that do not want another meeting</h2>
+            <p class="section-copy">
+              The first step is deliberately small. One workflow is reviewed
+              async, then the findings decide whether implementation is worth
+              discussing.
+            </p>
+          </div>
+          <div class="features">
+            <article class="feature">
+              <div class="feature-number">1</div>
+              <h3>Choose a workflow</h3>
+              <p>Pick the admin process causing the most interruption or repeated chasing.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-number">2</div>
+              <h3>Send evidence</h3>
+              <p>Answer a short questionnaire and share screenshots or a screen recording.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-number">3</div>
+              <h3>Get the audit</h3>
+              <p>Receive the bottlenecks, improvement options, tools, and estimated value.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-number">4</div>
+              <h3>Decide calmly</h3>
+              <p>Only move to implementation if the business case is clear enough.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflows">
+        <div class="section-inner split">
+          <div>
+            <div class="eyebrow">Good first workflows</div>
+            <h2>Start where client admin repeats every week</h2>
+            <p class="section-copy" style="margin: 18px 0 28px;">
+              The best first projects are not complex AI transformations. They
+              are repeated admin loops where ownership, reminders, status, and
+              templates can remove friction quickly.
+            </p>
+            <div class="workflow-list">
+              <div class="list-item">Client onboarding</div>
+              <div class="list-item">Document collection</div>
+              <div class="list-item">Monthly bookkeeping chase</div>
+              <div class="list-item">Payroll input collection</div>
+              <div class="list-item">Self Assessment deadline chase</div>
+              <div class="list-item">Proposal follow-up</div>
+              <div class="list-item">Client query triage</div>
+              <div class="list-item">Overdue invoice follow-up</div>
+            </div>
+          </div>
+
+          <aside id="audit" class="pricing">
+            <h3>Founding Partner Async Workflow Audit</h3>
+            <p>Reduced early pricing while the offer is shaped around real client workflows.</p>
+            <div class="price">
+              GBP 150-300
+              <span>Credited against implementation if you proceed.</span>
+            </div>
+            <ul class="included">
+              <li><span class="check">✓</span><span>Current workflow map</span></li>
+              <li><span class="check">✓</span><span>Bottlenecks and failure points</span></li>
+              <li><span class="check">✓</span><span>3-5 practical improvement opportunities</span></li>
+              <li><span class="check">✓</span><span>Suggested tools and implementation approach</span></li>
+              <li><span class="check">✓</span><span>Fixed-price implementation quote</span></li>
+            </ul>
+            <a href="questionnaire.html" class="button">Request questionnaire</a>
+            <div class="note">
+              If the audit cannot identify at least 3 credible improvements,
+              the audit fee is refunded.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="section-inner">
+          <div>
+            <h2>Send one workflow, get a practical view of what is worth fixing.</h2>
+            <p>
+              No large implementation is recommended until the workflow has
+              been mapped and the business case is clear.
+            </p>
+          </div>
+          <a href="questionnaire.html" class="button">Request questionnaire</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        Workflow Audit UK is an early partner service. It supports admin workflow
+        improvement and does not provide legal, tax, accounting, or compliance advice.
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>
