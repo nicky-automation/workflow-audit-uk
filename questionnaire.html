@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workflow Audit UK | Async Workflow Audit Questionnaire</title>
+    <title>Workflow Audit UK | Free Async Mini-Diagnosis</title>
     <meta
       name="description"
-      content="Async workflow audit questionnaire for accountancy and bookkeeping firms."
+      content="Free async mini-diagnosis questionnaire for UK service businesses with repeated admin bottlenecks."
     >
     <style>
       :root {
@@ -235,12 +235,12 @@
 
       <main>
         <div class="hero">
-          <div class="eyebrow">Async audit intake</div>
-          <h1>Tell me where the workflow is slowing down</h1>
+          <div class="eyebrow">Free async mini-diagnosis</div>
+          <h1>Tell me where the admin workflow is slowing down</h1>
           <p class="lede">
             Short answers are fine. The goal is to understand the current
-            process well enough to spot bottlenecks and decide whether a paid
-            audit is worth doing.
+            process well enough to send useful written observations and decide
+            whether a paid audit is worth doing.
           </p>
         </div>
 
@@ -258,7 +258,7 @@
               <input id="name" name="name" autocomplete="name">
             </div>
             <div class="field">
-              <label for="firm">Firm name</label>
+              <label for="firm">Business name</label>
               <input id="firm" name="firm" autocomplete="organization">
             </div>
           </div>
@@ -270,13 +270,13 @@
             </div>
             <div class="field">
               <label for="tools">Main tools involved</label>
-              <input id="tools" name="tools" placeholder="Outlook, Xero, Dext, Excel...">
+              <input id="tools" name="tools" placeholder="Outlook, Excel, CRM, practice software...">
             </div>
           </div>
 
           <div class="field">
             <label for="workflow">Which workflow would you most like to improve?</label>
-            <p class="hint">Examples: onboarding, document chasing, payroll inputs, monthly bookkeeping info, proposal follow-up, invoice chasing.</p>
+            <p class="hint">Examples: onboarding, document chasing, customer follow-up, compliance forms, appointment reminders, proposal follow-up, invoice chasing.</p>
             <textarea id="workflow" name="workflow"></textarea>
           </div>
 
@@ -299,7 +299,7 @@
 
           <div class="field">
             <label for="problems">What goes wrong most often?</label>
-            <p class="hint">Examples: clients do not reply, missing documents, duplicated chasing, unclear ownership, manual entry, partner has to step in.</p>
+            <p class="hint">Examples: people do not reply, missing documents, duplicated chasing, unclear ownership, manual entry, a senior person has to step in.</p>
             <textarea id="problems" name="problems"></textarea>
           </div>
 
@@ -333,7 +333,7 @@
         const data = new FormData(form);
         const fields = [
           ["Name", data.get("name")],
-          ["Firm", data.get("firm")],
+          ["Business", data.get("firm")],
           ["Email", data.get("email")],
           ["Tools", data.get("tools")],
           ["Workflow to improve", data.get("workflow")],
@@ -356,7 +356,7 @@
       }
 
       document.querySelector("#emailButton").addEventListener("click", () => {
-        const subject = encodeURIComponent("Async workflow audit questionnaire");
+        const subject = encodeURIComponent("Free async mini-diagnosis questionnaire");
         const body = encodeURIComponent(buildPayload());
         window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
         showResult("Your email app should open with the questionnaire answers prepared.");
